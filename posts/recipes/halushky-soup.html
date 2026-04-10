@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Суп із галушками по-миколаївськи</title>
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/personal_blog/">нотатки</a>
+  <span class="nav-sub">думки, місця, книги</span>
+</nav>
+
+<div class="hero">
+  <img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=1400&q=80" alt="Суп із галушками">
+  <div class="hero-overlay"></div>
+  <div class="hero-title">
+    <h1>Суп із галушками по-миколаївськи</h1>
+    <div class="post-date">Рецепт · Супи</div>
+  </div>
+</div>
+
+<main class="container">
+  <article class="post-body">
+
+    <a class="back-link" href="../../index.html">← назад</a>
+
+    <div class="recipe-meta">
+      <span class="recipe-badge accent">Супи</span>
+      <span class="recipe-badge">Українська кухня</span>
+      <span class="recipe-badge">Родинний рецепт</span>
+      <span class="recipe-badge">⏱ ~1,5 год</span>
+      <span class="recipe-badge">4 порції</span>
+    </div>
+
+    <p>На Півдні України — від Миколаєва до Херсонщини — галушки це не кульки з тіста, а тонко розкатані квадратики, ніжні й трішки еластичні. Суп варять на курячому бульйоні з картоплею і обсмаженою морквою. А наприкінці — яйце, вбите прямо в каструлю, щоб утворився м'який яєчний "туман".</p>
+
+    <div class="ingredients-block">
+      <h3>Для супу</h3>
+      <ul>
+        <li>Курка (ніжка або шматок) — 500 г</li>
+        <li>Картопля — 3–4 шт</li>
+        <li>Морква — 1 велика</li>
+        <li>Цибуля — 1 шт</li>
+        <li>Соняшникова олія — 1–2 ст. л.</li>
+        <li>Лавровий лист — 1–2 шт</li>
+        <li>Сіль, чорний перець — до смаку</li>
+        <li>Яйце — 1 шт (для фіналу)</li>
+        <li>Зелень — кріп або петрушка</li>
+      </ul>
+    </div>
+
+    <div class="ingredients-block">
+      <h3>Для галушок</h3>
+      <ul>
+        <li>Борошно — 1,5 склянки</li>
+        <li>Яйце — 1 шт</li>
+        <li>Вода — ~½ склянки</li>
+        <li>Щіпка солі</li>
+      </ul>
+    </div>
+
+    <span class="section-label">Приготування</span>
+
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-text"><strong>Бульйон.</strong> Промийте курку, залийте 2–2,5 л холодної води. Доведіть до кипіння, зніміть піну, посоліть, додайте лавровий лист. Варіть на малому вогні 40 хв. Дістаньте м'ясо, відокремте від кісток, наріжте шматочками.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-text"><strong>Овочі.</strong> Дрібно наріжте цибулю, натріть моркву. Підсмажте на олії до легкого золотистого кольору. Картоплю наріжте кубиками. Додайте все до бульйону, варіть до м'якості картоплі.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-text"><strong>Галушки.</strong> Збийте яйце з сіллю, додайте воду, підсипайте борошно. Замісіть м'яке еластичне тісто, дайте відпочити 10–15 хв. Розкатайте тонко і наріжте квадратами 2×2 см. Можна підсушити на рушнику.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-text">Всипте галушки в киплячий суп. Обережно перемішайте, варіть 5–7 хв. Поверніть м'ясо, поперчіть.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">5</div>
+      <div class="step-text"><strong>Головний момент:</strong> розбийте сире яйце прямо в суп, дайте білку схопитись кілька секунд, потім легко перемішайте. Зніміть з вогню, посипте зеленню.</div>
+    </div>
+
+    <div class="tip-block">
+      <p>Подавати зі сметаною або краплею домашньої олії. Дайте супу постояти кілька хвилин після варіння — тоді він "дозріває" і стає найсмачнішим. Якщо галушки тонкі — вони ніжні як локшина; якщо товстіші — мають "село в характері".</p>
+    </div>
+
+  </article>
+</main>
+
+<footer>✦</footer>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lb-close">×</button>
+  <img id="lb-img" src="" alt="">
+</div>
+
+<script>
+(function(){
+  const lb=document.getElementById('lightbox'),lbImg=document.getElementById('lb-img');
+  document.querySelectorAll('.post-photo').forEach(el=>{
+    el.addEventListener('click',()=>{lbImg.src=el.querySelector('img').src;lb.classList.add('active');document.body.style.overflow='hidden';});
+  });
+  function close(){lb.classList.remove('active');document.body.style.overflow='';}
+  document.getElementById('lb-close').addEventListener('click',close);
+  lb.addEventListener('click',e=>{if(e.target!==lbImg)close();});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')close();});
+})();
+</script>
+
+</body>
+</html>

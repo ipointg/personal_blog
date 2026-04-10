@@ -21,25 +21,155 @@
     <p>думки, місця, книги</p>
   </div>
 
-  <div class="post-list">
+  <div class="filter-bar">
+    <div class="search-wrap">
+      <span class="search-icon">⌕</span>
+      <input class="search-input" id="search" type="search" placeholder="пошук…" autocomplete="off">
+    </div>
+    <div class="filter-tags">
+      <button class="filter-tag active" data-filter="all">Всі</button>
+      <button class="filter-tag" data-filter="подорожі">Подорожі</button>
+      <button class="filter-tag" data-filter="рецепт">Рецепти</button>
+      <button class="filter-tag" data-filter="млинці">Млинці</button>
+      <button class="filter-tag" data-filter="супи">Супи</button>
+      <button class="filter-tag" data-filter="випічка">Випічка</button>
+      <button class="filter-tag" data-filter="паста">Паста</button>
+    </div>
+  </div>
 
-    <a class="post-card" href="posts/prague-2026.html">
+  <div class="post-list" id="post-list">
+
+    <a class="post-card" href="posts/prague-2026.html" data-tags="подорожі,чехія,прага">
       <div class="post-card-img">
         <img src="images/street.jpg" alt="Прага">
       </div>
       <div class="post-card-body">
-        <div class="post-card-date">Квітень 2026</div>
+        <div class="post-card-date">Квітень 2026 · Подорожі</div>
         <h2>Прага. Нотатки з подорожі</h2>
         <p>Мезуза на дверях, пиво з гуситської чаші, Голем, Грабал, Гашек, Чапек — і відчуття, що Прага тебе вже давно знала.</p>
       </div>
     </a>
 
+    <a class="post-card" href="posts/recipes/kefir-crepes.html" data-tags="рецепт,млинці,сніданок,українська">
+      <div class="post-card-img">
+        <img src="https://images.unsplash.com/photo-1519676867240-f03562e64548?auto=format&fit=crop&w=600&q=80" alt="Налисники на кефірі">
+      </div>
+      <div class="post-card-body">
+        <div class="post-card-date">Рецепт · Млинці</div>
+        <h2>Налисники на кефірі</h2>
+        <p>М'які, еластичні млинці, які легко загортати з будь-якою начинкою — сиром, м'ясом, грибами чи фруктами.</p>
+      </div>
+    </a>
+
+    <a class="post-card" href="posts/recipes/sour-milk-crepes.html" data-tags="рецепт,млинці,сніданок,українська">
+      <div class="post-card-img">
+        <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=600&q=80" alt="Тонкі млинці">
+      </div>
+      <div class="post-card-body">
+        <div class="post-card-date">Рецепт · Млинці</div>
+        <h2>Тонкі млинці на підкисшому молоці</h2>
+        <p>Ажурні, мереживні млинці — секрет у окропі і дуже гарячій сковорідці. Тоненькі, як серветка.</p>
+      </div>
+    </a>
+
+    <a class="post-card" href="posts/recipes/halushky-soup.html" data-tags="рецепт,супи,українська,бульйон">
+      <div class="post-card-img">
+        <img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=600&q=80" alt="Суп із галушками">
+      </div>
+      <div class="post-card-body">
+        <div class="post-card-date">Рецепт · Супи</div>
+        <h2>Суп із галушками по-миколаївськи</h2>
+        <p>Родинний рецепт із Півдня України. Курячий бульйон, тонкі квадратики тіста і яйце, вбите просто в каструлю.</p>
+      </div>
+    </a>
+
+    <a class="post-card" href="posts/recipes/paska.html" data-tags="рецепт,випічка,великдень,українська,солодке">
+      <div class="post-card-img">
+        <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80" alt="Паска">
+      </div>
+      <div class="post-card-body">
+        <div class="post-card-date">Рецепт · Випічка</div>
+        <h2>Паска в духовці</h2>
+        <p>Ніжна, запашна великодня паска на дріжджах. Маленькі форми, рівномірне пропікання і проста цукрова глазур.</p>
+      </div>
+    </a>
+
+    <a class="post-card" href="posts/recipes/pasta.html" data-tags="рецепт,паста,італійська,основні">
+      <div class="post-card-img">
+        <img src="https://images.unsplash.com/photo-1551183053-bf91798d5752?auto=format&fit=crop&w=600&q=80" alt="Домашня паста">
+      </div>
+      <div class="post-card-body">
+        <div class="post-card-date">Рецепт · Паста</div>
+        <h2>Домашня паста</h2>
+        <p>Класичне тісто на яйцях, кольорові варіації, чорна паста з чорнилом каракатиці і соус Альфредо.</p>
+      </div>
+    </a>
+
   </div>
+
+  <div class="no-results" id="no-results">Нічого не знайдено</div>
+
 </main>
 
 <footer>
   ✦
 </footer>
+
+<script>
+(function () {
+  const searchInput = document.getElementById('search');
+  const filterBtns  = document.querySelectorAll('.filter-tag');
+  const cards       = document.querySelectorAll('.post-card');
+  const noResults   = document.getElementById('no-results');
+  let activeFilter  = 'all';
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeFilter = btn.dataset.filter;
+      applyFilters();
+    });
+  });
+
+  searchInput.addEventListener('input', applyFilters);
+
+  function applyFilters() {
+    const q = searchInput.value.toLowerCase().trim();
+    let visible = 0;
+    cards.forEach(card => {
+      const tags  = (card.dataset.tags || '').toLowerCase();
+      const title = (card.querySelector('h2')?.textContent || '').toLowerCase();
+      const desc  = (card.querySelector('p')?.textContent  || '').toLowerCase();
+      const okFilter = activeFilter === 'all' || tags.includes(activeFilter);
+      const okSearch = !q || title.includes(q) || desc.includes(q) || tags.includes(q);
+      const show = okFilter && okSearch;
+      card.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+    noResults.style.display = visible === 0 ? 'block' : 'none';
+  }
+})();
+</script>
+
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lb-close">×</button>
+  <img id="lb-img" src="" alt="">
+</div>
+
+<script>
+(function(){
+  const lb=document.getElementById('lightbox'),lbImg=document.getElementById('lb-img');
+  document.querySelectorAll('.post-photo').forEach(el=>{
+    el.addEventListener('click',()=>{lbImg.src=el.querySelector('img').src;lb.classList.add('active');document.body.style.overflow='hidden';});
+  });
+  function close(){lb.classList.remove('active');document.body.style.overflow='';}
+  document.getElementById('lb-close').addEventListener('click',close);
+  lb.addEventListener('click',e=>{if(e.target!==lbImg)close();});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')close();});
+})();
+</script>
 
 </body>
 </html>

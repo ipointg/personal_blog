@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Налисники на кефірі</title>
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/personal_blog/">нотатки</a>
+  <span class="nav-sub">думки, місця, книги</span>
+</nav>
+
+<div class="hero">
+  <img src="https://images.unsplash.com/photo-1519676867240-f03562e64548?auto=format&fit=crop&w=1400&q=80" alt="Налисники на кефірі">
+  <div class="hero-overlay"></div>
+  <div class="hero-title">
+    <h1>Налисники на кефірі</h1>
+    <div class="post-date">Рецепт · Млинці</div>
+  </div>
+</div>
+
+<main class="container">
+  <article class="post-body">
+
+    <a class="back-link" href="../../index.html">← назад</a>
+
+    <div class="recipe-meta">
+      <span class="recipe-badge accent">Млинці</span>
+      <span class="recipe-badge">Сніданок</span>
+      <span class="recipe-badge">Українська кухня</span>
+      <span class="recipe-badge">⏱ 30 хв</span>
+      <span class="recipe-badge">15–18 шт</span>
+    </div>
+
+    <p>Класичні налисники на кефірі — м'які, еластичні, з дрібними дірочками. Легко загортати будь-яку начинку: сир, м'ясо, гриби чи фрукти. Окріп в кінці — головний секрет еластичності.</p>
+
+    <div class="ingredients-block">
+      <h3>Інгредієнти</h3>
+      <ul>
+        <li>Кефір — 500 мл</li>
+        <li>Яйця — 2 шт</li>
+        <li>Борошно — 250 г (~1,5 склянки)</li>
+        <li>Цукор — 1–2 ст. л.</li>
+        <li>Сіль — ½ ч. л.</li>
+        <li>Сода — ½ ч. л.</li>
+        <li>Рослинна олія — 2 ст. л. + для смаження</li>
+        <li>Окріп — 100 мл</li>
+      </ul>
+    </div>
+
+    <span class="section-label">Приготування</span>
+
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-text">Збийте яйця з сіллю і цукром у мисці.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-text">Додайте кефір, перемішайте.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-text">Змішайте борошно з содою окремо. Поступово всипайте в кефірну суміш, добре вимішуючи щоб не було грудочок.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-text">Додайте олію і <strong>окріп</strong>, ще раз ретельно перемішайте. Тісто має бути рідким, як нежирна сметана.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">5</div>
+      <div class="step-text">Дайте тісту постояти 10–15 хв.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">6</div>
+      <div class="step-text">Смажте на добре розігрітій сковороді, змащеній олією, з обох боків до золотистості.</div>
+    </div>
+
+    <div class="tip-block">
+      <p>Такі налисники виходять ніжними, але міцними — легко загортати будь-яку начинку. Якщо плануєте солодку начинку, додайте більше цукру.</p>
+    </div>
+
+  </article>
+</main>
+
+<footer>✦</footer>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lb-close">×</button>
+  <img id="lb-img" src="" alt="">
+</div>
+
+<script>
+(function(){
+  const lb=document.getElementById('lightbox'),lbImg=document.getElementById('lb-img');
+  document.querySelectorAll('.post-photo').forEach(el=>{
+    el.addEventListener('click',()=>{lbImg.src=el.querySelector('img').src;lb.classList.add('active');document.body.style.overflow='hidden';});
+  });
+  function close(){lb.classList.remove('active');document.body.style.overflow='';}
+  document.getElementById('lb-close').addEventListener('click',close);
+  lb.addEventListener('click',e=>{if(e.target!==lbImg)close();});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')close();});
+})();
+</script>
+
+</body>
+</html>

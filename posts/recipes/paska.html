@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Паска в духовці</title>
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/personal_blog/">нотатки</a>
+  <span class="nav-sub">думки, місця, книги</span>
+</nav>
+
+<div class="hero">
+  <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1400&q=80" alt="Паска">
+  <div class="hero-overlay"></div>
+  <div class="hero-title">
+    <h1>Паска в духовці</h1>
+    <div class="post-date">Рецепт · Випічка</div>
+  </div>
+</div>
+
+<main class="container">
+  <article class="post-body">
+
+    <a class="back-link" href="../../index.html">← назад</a>
+
+    <div class="recipe-meta">
+      <span class="recipe-badge accent">Випічка</span>
+      <span class="recipe-badge">Великодній рецепт</span>
+      <span class="recipe-badge">Українська кухня</span>
+      <span class="recipe-badge">⏱ ~2,5 год</span>
+      <span class="recipe-badge">2–3 маленькі паски</span>
+    </div>
+
+    <p>Ніжна, запашна паска на дріжджах. Маленькі форми пропікаються рівномірно — це головна порада. Прості інгредієнти, жодних складнощів.</p>
+
+    <div class="ingredients-block">
+      <h3>Інгредієнти</h3>
+      <ul>
+        <li>Молоко тепле — 150 мл</li>
+        <li>Яйце — 1 шт</li>
+        <li>Цукор — 70–100 г</li>
+        <li>Ванільний цукор — 1 ч. л.</li>
+        <li>Дріжджі сухі — 5–7 г</li>
+        <li>Борошно — ~300 г</li>
+        <li>Вершкове масло — 40 г (розтоплене)</li>
+        <li>Родзинки — за бажанням</li>
+        <li>Щіпка солі</li>
+      </ul>
+    </div>
+
+    <span class="section-label">Приготування</span>
+
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-text"><strong>Опара.</strong> Змішайте молоко + дріжджі + 1 ст. л. цукру + 2 ст. л. борошна. Залиште на 10–15 хв — має з'явитися піна.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-text"><strong>Тісто.</strong> Додайте яйце, решту цукру, ваніль, масло, сіль. Поступово додавайте борошно. Замісіть м'яке тісто — не липке, але не туге.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-text"><strong>Підйом.</strong> Накрийте і залиште у теплому місці ~1 год. Має збільшитись у 2 рази.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-text"><strong>Формування.</strong> Додайте родзинки. Розкладіть у формочки, заповнюючи ~½. Дайте піднятись ще 20–30 хв.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">5</div>
+      <div class="step-text"><strong>Випікання.</strong> Розігрійте духовку до 180°C. Час: 30–40 хв залежно від розміру. Якщо зверху темніє — накрийте фольгою. Не відкривайте перші 20 хв. Готовність — зубочисткою: має виходити суха.</div>
+    </div>
+
+    <span class="section-label">Глазур</span>
+
+    <p>Цукрова пудра + кілька крапель води або лимонного соку. Перемішати до густої консистенції і намазати на <strong>охолоджену</strong> паску.</p>
+
+    <div class="tip-block">
+      <p>Краще робити маленькі паски — рівномірно пропікаються. Ставити на середній рівень духовки. Якщо є режим "верх-низ" без конвекції — краще ним: конвекція може підсушувати.</p>
+    </div>
+
+  </article>
+</main>
+
+<footer>✦</footer>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lb-close">×</button>
+  <img id="lb-img" src="" alt="">
+</div>
+
+<script>
+(function(){
+  const lb=document.getElementById('lightbox'),lbImg=document.getElementById('lb-img');
+  document.querySelectorAll('.post-photo').forEach(el=>{
+    el.addEventListener('click',()=>{lbImg.src=el.querySelector('img').src;lb.classList.add('active');document.body.style.overflow='hidden';});
+  });
+  function close(){lb.classList.remove('active');document.body.style.overflow='';}
+  document.getElementById('lb-close').addEventListener('click',close);
+  lb.addEventListener('click',e=>{if(e.target!==lbImg)close();});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')close();});
+})();
+</script>
+
+</body>
+</html>
